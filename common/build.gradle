@@ -1,0 +1,42 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+}
+
+android {
+    namespace 'com.vapps.common'
+    compileSdk 34
+
+    defaultConfig {
+        minSdk 21
+        targetSdk 34
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    android.buildFeatures.dataBinding = true
+}
+dependencies {
+
+    api deps.coreKtx
+    api deps.appcompat
+    api deps.material
+
+    api deps.activity
+    api deps.fragment
+
+    //Lifecycle
+    api deps.viewModel
+    api deps.liveData
+    api deps.saveState
+    kapt deps.lifecycleCompiler
+
+    //Rx
+    implementation deps.rxAndroid
+
+}
