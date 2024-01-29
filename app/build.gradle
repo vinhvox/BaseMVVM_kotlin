@@ -51,6 +51,7 @@ android {
         viewBinding = true
         buildConfig = true
     }
+    dynamicFeatures = [':feature:applock']
 }
 
 dependencies {

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">BaseMVVM_Kotlin</string>
+    <string name="title_applock">applock</string>
 </resources>
