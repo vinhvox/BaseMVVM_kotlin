@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.vapps.database.entity.UserEntity
+import com.mobiledevpro.database.entity.UserEntity
 
 /**
  * Room Database
@@ -17,6 +17,7 @@ import com.vapps.database.entity.UserEntity
     version = BuildConfig.DB_VERSION,
     exportSchema = true
 )
+
 internal abstract class AppDatabase : RoomDatabase() {
     //internal abstract val userDao: UserDao
 
@@ -33,3 +34,4 @@ internal abstract class AppDatabase : RoomDatabase() {
                 .build()
     }
 }
+

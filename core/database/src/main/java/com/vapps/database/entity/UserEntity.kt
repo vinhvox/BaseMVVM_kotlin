@@ -1,4 +1,4 @@
-package com.vapps.database.entity
+package com.mobiledevpro.database.entity
 
 import androidx.room.Entity
 import androidx.room.Index
