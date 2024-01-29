@@ -18,3 +18,5 @@ dependencyResolutionManagement {
 rootProject.name = "BaseMVVM_Kotlin"
 include ':app'
 include ':core:database'
+include ':core:ui'
+include ':core:navigation'

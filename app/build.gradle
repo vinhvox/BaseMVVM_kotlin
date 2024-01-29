@@ -64,4 +64,6 @@ dependencies {
 
     //core modules for the whole app including feature modules
     api core.database
+    api core.ui
+    api core.navigation
 }
