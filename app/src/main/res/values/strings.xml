@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">BaseMVVM</string>
+    <string name="title_database">database</string>
+    <string name="title_ui">ui</string>
+    <string name="title_home">home</string>
+    <string name="title_utils">utils</string>
+    <string name="title_navigation">navigation</string>
+
+    <string name="message_trouble_internet_connection">There is a trouble connecting to server. Please, check your internet connection and try again.</string>
+
+</resources>
