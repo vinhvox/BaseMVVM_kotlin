@@ -1,0 +1,56 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+}
+
+
+android {
+    namespace 'com.vapps.database'
+    compileSdk 34
+
+    flavorDimensions "default"
+    android.productFlavors {
+        production {
+            dimension = "default"
+            buildConfigField "String", "DB_NAME", "\"app_database\""
+            buildConfigField "int", "DB_VERSION", "1"
+        }
+
+        dev {
+            dimension = "default"
+            buildConfigField "String", "DB_NAME", "\"app_database_demo\""
+            buildConfigField "int", "DB_VERSION", "1"
+        }
+    }
+
+    buildFeatures {
+        dataBinding = true
+        viewBinding = true
+        buildConfig = true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    //Koin
+    implementation deps.koinCore
+    implementation deps.koinAndroid
+
+    implementation deps.room
+    implementation deps.roomKtx
+    kapt deps.roomCompiler
+
+    androidTestImplementation deps.roomTesting
+    testImplementation deps.jUnit
+    androidTestImplementation deps.jUnitExt
+    androidTestImplementation deps.testRunner
+}
