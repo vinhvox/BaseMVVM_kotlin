@@ -4,42 +4,32 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.LayoutRes
-import androidx.databinding.DataBindingUtil
-import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import androidx.viewbinding.ViewBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
 
-abstract class BaseFragment<B : ViewDataBinding>(
-    @LayoutRes
-    private val layoutId: Int,
-) : Fragment() {
+abstract class BaseFragment<B : ViewBinding> : Fragment(), CoroutineScope by CoroutineScope(
+    Dispatchers.Main
+) {
 
-    lateinit var viewBinding: B
+    protected lateinit var views: B
+        private set
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
-    /**
-     * Called to Initialize view data binding variables when fragment view is created.
-     */
-    abstract fun onInitDataBinding()
-
-    abstract fun observeLifecycleEvents()
+    abstract val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> B
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        viewBinding = DataBindingUtil.inflate(inflater, layoutId, container, false)
-        viewBinding.lifecycleOwner = viewLifecycleOwner
-        return viewBinding.root
+    ): View {
+        views = bindingInflater.invoke(inflater, container, false)
+        return views.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        onInitDataBinding()
-        observeLifecycleEvents()
+    override fun onDestroyView() {
+        coroutineContext[Job]?.cancel()
+        super.onDestroyView()
     }
 }

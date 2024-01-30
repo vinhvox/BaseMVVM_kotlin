@@ -1,64 +1,38 @@
 package com.vapps.common.ui.base
 
 import android.os.Bundle
-import android.view.View
-import android.view.ViewGroup
-import androidx.annotation.LayoutRes
-import androidx.appcompat.app.ActionBar
+import android.view.LayoutInflater
+import androidx.annotation.CallSuper
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDelegate
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.updateLayoutParams
+import androidx.viewbinding.ViewBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
 
 
-abstract class BaseActivity(
-    @LayoutRes
-    private val layoutId: Int,
-) : AppCompatActivity() {
-    init {
-        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true)
-    }
+abstract class BaseActivity<B : ViewBinding> : AppCompatActivity(),
+    CoroutineScope by CoroutineScope(
+        Dispatchers.Main
+    ) {
 
-    private var actionBar: ActionBar? = null
+    protected lateinit var views: B
+        private set
 
-    abstract fun initViews(layoutView: View)
+    abstract val bindingInflater: (LayoutInflater) -> B
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        setContentView(layoutId)
-        actionBar = supportActionBar
-
-
-        //populate view
-        val layoutView = (findViewById<View>(android.R.id.content) as ViewGroup).getChildAt(0)
-        initViews(layoutView)
-
-        applyWindowInsets(findViewById(android.R.id.content))
+        views = bindingInflater.invoke(layoutInflater).apply {
+            setContentView(root)
+        }
+        onViewBindingCreated(savedInstanceState)
     }
 
-    /**
-     * Use Window Insets to apply system paddings to this activity
-     */
-    private fun applyWindowInsets(view: View) {
-        ViewCompat.setOnApplyWindowInsetsListener(view) { v, windowInsets ->
+    open fun onViewBindingCreated(savedInstanceState: Bundle?) {}
 
-            val insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
-            // Apply the insets as a margin to the view. Here the system is setting
-            // only the bottom, left, and right dimensions, but apply whichever insets are
-            // appropriate to your layout. You can also update the view padding
-            // if that's more appropriate.
-            view.updateLayoutParams<ViewGroup.MarginLayoutParams> {
-                leftMargin = insets.left
-                bottomMargin = insets.bottom
-                rightMargin = insets.right
-                topMargin = insets.top
-            }
-
-            // Return CONSUMED if you don't want want the window insets to keep being
-            // passed down to descendant views.
-            WindowInsetsCompat.CONSUMED
-        }
+    @CallSuper
+    override fun onDestroy() {
+        coroutineContext[Job]?.cancel()
+        super.onDestroy()
     }
 }
