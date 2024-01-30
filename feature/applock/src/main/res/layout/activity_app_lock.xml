@@ -1,12 +1,198 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white">
+    android:layout_height="match_parent">
 
-    <ImageView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/img_test" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Native ad" />
+
+
+        <FrameLayout
+            android:id="@+id/flNativeAds"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_150sdp"
+            android:background="@drawable/bg_card_ads"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <include
+                android:id="@+id/includeShimmer"
+                layout="@layout/loading_native_medium"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/flNativeAds1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_150sdp"
+            android:background="@drawable/bg_card_ads"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <include
+                android:id="@+id/includeShimmer1"
+                layout="@layout/loading_native_medium"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/flNativeAds2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_150sdp"
+            android:background="@drawable/bg_card_ads"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <include
+                android:id="@+id/includeShimmer2"
+                layout="@layout/loading_native_medium"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/flNativeAds3"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_150sdp"
+            android:background="@drawable/bg_card_ads"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <include
+                android:id="@+id/includeShimmer3"
+                layout="@layout/loading_native_medium"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/flNativeAds4"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_150sdp"
+            android:background="@drawable/bg_card_ads"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <include
+                android:id="@+id/includeShimmer4"
+                layout="@layout/loading_native_medium"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/flNativeAds5"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_150sdp"
+            android:background="@drawable/bg_card_ads"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <include
+                android:id="@+id/includeShimmer5"
+                layout="@layout/loading_native_medium"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/flNativeAds6"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_150sdp"
+            android:background="@drawable/bg_card_ads"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <include
+                android:id="@+id/includeShimmer6"
+                layout="@layout/loading_native_medium"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/flNativeAds7"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_150sdp"
+            android:background="@drawable/bg_card_ads"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <include
+                android:id="@+id/includeShimmer7"
+                layout="@layout/loading_native_medium"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Banner ad" />
+
+        <Button
+            android:id="@+id/btnReload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Click to Reload"
+            app:layout_constraintBottom_toTopOf="@id/frAds"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnShowDialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Click to dismiss banner"
+            app:layout_constraintBottom_toTopOf="@id/frAds"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <FrameLayout
+            android:id="@+id/frAds"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <include layout="@layout/layout_banner_control" />
+        </FrameLayout>
+
+        <Button
+            android:id="@+id/btnShowInter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Show inter ads" />
+    </LinearLayout>
+</ScrollView>

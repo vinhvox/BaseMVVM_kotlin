@@ -1,0 +1,50 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+
+    <style name="AdsAppTheme" parent="Theme.AppCompat.Light" />
+
+
+    <style name="AppTheme.Ads" parent="@style/AdsAppTheme">
+        <item name="android:textSize">11.0sp</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">left</item>
+        <item name="android:background">@drawable/ad_background</item>
+        <item name="android:paddingLeft">3.0dip</item>
+        <item name="android:paddingRight">6.0dip</item>
+        <item name="android:paddingBottom">1.0dip</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minWidth">15.0px</item>
+        <item name="android:minHeight">15.0px</item>
+        <item name="android:text">Ad</item>
+    </style>
+
+    <style name="NoTitleDialog" parent="Theme.AppCompat.Dialog">
+        <item name="android:windowNoTitle">true</item>
+    </style>
+    <style name="FullScreenDialogStyle" parent="Theme.AppCompat.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="colorPrimaryDark">@color/color_bg_dialog</item>
+        <item name="colorPrimary">@color/color_bg_dialog</item>
+
+        <!-- Set this to true if you want Full Screen without status bar -->
+        <item name="android:windowFullscreen">false</item>
+
+        <item name="android:windowIsFloating">false</item>
+
+        <!-- This is important! Don't forget to set window background -->
+        <item name="android:windowBackground">@color/colorWhite</item>
+
+        <!-- Additionally if you want animations when dialog opening -->
+        <!--<item name="android:windowEnterAnimation">@anim/slide_up</item>-->
+        <!--<item name="android:windowExitAnimation">@anim/slide_down</item>-->
+    </style>
+
+</resources>

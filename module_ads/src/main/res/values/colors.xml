@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="colorPrimary">#FF5722</color>
+    <color name="colorPrimaryDark">#FF5722</color>
+    <color name="colorAccent">#FF5722</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="stockeCard">#5E58595A</color>
+    <color name="lightTransparent">#16000000</color>
+    <color name="color_bg_dialog">#CCFFFFFF</color>
+</resources>

@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BaseMVVM_Kotlin"
-        tools:targetApi="31">
+        tools:targetApi="31"
+        tools:replace="android:theme">
         <activity
             android:name=".view.MainActivity"
             android:exported="true">
@@ -22,6 +23,27 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3940256099942544~3347511713"/>
+        <meta-data android:name="com.google.android.gms.ads.flag.NATIVE_AD_DEBUGGER_ENABLED"
+            android:value="false" />
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="dasdjklsadsal;dk" />
+
+        <meta-data android:name="com.facebook.sdk.ClientToken"
+            android:value="121yu23y3u21"/>
+        <meta-data
+            android:name="com.facebook.sdk.AutoInitEnabled"
+            android:value="true" />
+        <meta-data
+            android:name="com.facebook.sdk.AutoLogAppEventsEnabled"
+            android:value="true" />
+        <meta-data
+            android:name="com.facebook.sdk.AdvertiserIDCollectionEnabled"
+            android:value="true" />
     </application>
 
 </manifest>

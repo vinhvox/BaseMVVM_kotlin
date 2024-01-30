@@ -23,12 +23,14 @@ android {
             dimension = "default"
             buildConfigField "String", "DB_NAME", "\"app_database\""
             buildConfigField "int", "DB_VERSION", "1"
+            buildConfigField "String", "app_open", "\"ca-app-pub-3940256099942544/9257395921\""
         }
 
         dev {
             dimension = "default"
             buildConfigField "String", "DB_NAME", "\"app_database_demo\""
             buildConfigField "int", "DB_VERSION", "1"
+            buildConfigField "String", "app_open", "\"ca-app-pub-3940256099942544/9257395921\""
         }
     }
 
@@ -56,6 +58,7 @@ android {
 
 dependencies {
     devApi project(':common')
+    devApi project(":module_ads")
 
     api deps.preference
     api deps.constraintLayout
@@ -83,4 +86,7 @@ dependencies {
     api core.ui
     api core.navigation
     api core.utils
+
+    //ads
+    api deps.serviceAds
 }
